@@ -2,43 +2,43 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
-  <title>今日日期按鈕</title>
+  <title>顯示今天日期</title>
   <style>
     body {
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      background: #f9fafb;
+      background: #f3f4f6;
     }
     .date-button {
-      background-color: #4f46e5;
+      background-color: #059669;
       color: white;
-      padding: 14px 28px;
+      padding: 16px 32px;
+      font-size: 18px;
       border: none;
       border-radius: 12px;
-      font-size: 18px;
-      font-family: sans-serif;
-      box-shadow: 2px 4px 10px rgba(0,0,0,0.2);
       cursor: pointer;
-      transition: 0.2s;
+      font-family: sans-serif;
+      box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.15);
+      transition: background 0.3s;
     }
     .date-button:hover {
-      background-color: #4338ca;
+      background-color: #047857;
     }
   </style>
 </head>
 <body>
-  <button class="date-button" onclick="window.location.href='https://lumasonix.wixsite.com/lumasonix'">
-    📅 今天是 <span id="today"></span>
-  </button>
+  <button class="date-button" onclick="showDate()">👉 點我顯示今天日期</button>
 
   <script>
-    const today = new Date();
-    const formatted = today.getFullYear() + '/' +
-                      String(today.getMonth() + 1).padStart(2, '0') + '/' +
-                      String(today.getDate()).padStart(2, '0');
-    document.getElementById('today').textContent = formatted;
+    function showDate() {
+      const today = new Date();
+      const formatted = today.getFullYear() + '/' +
+                        String(today.getMonth() + 1).padStart(2, '0') + '/' +
+                        String(today.getDate()).padStart(2, '0');
+      document.querySelector('.date-button').textContent = `📅 今天是 ${formatted}`;
+    }
   </script>
 </body>
 </html>
