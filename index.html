@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+html_content_click_to_show_date = '''<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
@@ -42,3 +42,17 @@
   </script>
 </body>
 </html>
+'''
+
+# 產生檔案與壓縮
+new_project_dir = Path("/mnt/data/github-pages-show-date")
+new_project_dir.mkdir(exist_ok=True)
+new_index_html = new_project_dir / "index.html"
+new_index_html.write_text(html_content_click_to_show_date, encoding='utf-8')
+
+# 壓縮成 zip 檔案
+new_zip_path = "/mnt/data/github-pages-show-date.zip"
+with zipfile.ZipFile(new_zip_path, 'w') as zipf:
+    zipf.write(new_index_html, arcname="index.html")
+
+new_zip_path
